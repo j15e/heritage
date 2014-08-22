@@ -1,0 +1,328 @@
+<script type="text/javascript">
+function getElementWithId(id){
+    var obj;
+    if(document.getElementById){
+        obj = document.getElementById(id);
+    }else if(document.all){
+        obj = document.all[id];
+    }else if(document.layers){
+        obj = document.layers[id];
+    }
+    return obj||null;
+}
+function show(whichLayer){
+	whichLayer = "q"+whichLayer;
+	if(getElementWithId(whichLayer).className=="hide"){
+		getElementWithId(whichLayer).className="show";
+	} else {
+		getElementWithId(whichLayer).className="hide";
+	}
+}
+</script>
+<h2>R&eacute;vision</h2>
+<h4>Table des mati&egrave;res</h4>
+<p>1 - <a href="#1">Questionnaire</a><br />
+  2 - <a href="#2">Mises en situations</a></p>
+<h3><a name="1"></a>1 - Questionnaire</h3>
+<p>Voici un petit questionnaire. Pour voir la r&eacute;ponse, cliquez sur la question.</p>
+<h5><a name="1.1" id="1.1"></a>CSS</h5>
+<p> <span class="question" onClick="javascript:show('1')"><strong>1 - Quelle est 
+  l'utilit&eacute; pr&eacute;vue au HTML?</strong><br />
+  </span> <span id="q1" class="hide">Structurer le contenu d'une page.<br />
+  </span> <span class="question" onClick="javascript:show('2')"><strong>2 - Quelle 
+  est l'utilit&eacute; du CSS?</strong><br />
+  </span> <span id="q2" class="hide">Appliquer une mise en forme au contenu d'une 
+  page.<br />
+  </span> <span class="question" onClick="javascript:show('3')"><strong>3 - Est-il 
+  obligatoire d'utiliser un CSS externe et si non, quels sont les autres moyens 
+  d'appliquer des style?</strong><br />
+  </span> <span id="q3" class="hide">Non, on peut d&eacute;finir des styles &agrave; 
+  l'int&eacute;rieur d'une page HTML ou directement sur l'&eacute;l&eacute;ment 
+  avec l'attribut style.<br />
+  </span> <span class="question" onClick="javascript:show('4')"><strong>4 - Quelles 
+  sont les 3 choses qui peuvent permettre d'identifier un &eacute;l&eacute;ment 
+  pour lui appliquer un style?<br />
+  </strong></span> <span id="q4" class="hide">Sa balise HTML, sa classe et son 
+  id.</span></p>
+<h5><a name="1.2" id="1.2"></a>JavaScript</h5>
+<p> <span class="question" onClick="javascript:show(5)"><strong>5 - Qu'est-ce 
+  qui ex&eacute;cute le JavaScript? Le client ou le serveur?</strong><br />
+  </span> <span id="q5" class="hide">Le client.<br />
+  </span> <span class="question" onClick="javascript:show(6)"><strong>6 - Quand 
+  est-il avantageux de mettre le code directement dans la page?</strong><br />
+  </span> <span id="q6" class="hide">Lorsque le code est lourd et utilis&eacute; 
+  uniquement sur cette page.<br />
+  </span> <span class="question" onClick="javascript:show(7)"><strong>7 - Quand 
+  est-il avantageux d'utiliser un fichier externe?</strong><br />
+  </span> <span id="q7" class="hide">Lorsque le code est utilis&eacute; sur plusieurs 
+  pages ou lorsqu'il est utilis&eacute; sur une seule page mais qu'il est l&eacute;ger 
+  (car il est plus pratique de retrouver tout son code au m&ecirc;me endroit).<br />
+  </span> <span class="question" onClick="javascript:show(8)"><strong>8 - &Agrave; 
+  quel nombre d&eacute;bute la num&eacute;rotation d'un tableau?<br />
+  </strong></span> <span id="q8" class="hide">À 0.<br />
+  </span> <span class="question" onClick="javascript:show(9)"><strong>9 - Quels 
+  sont les deux type de fonctions qui existent?<br />
+  </strong></span> <span id="q9" class="hide">Les fonctions créées par l'utilisateur 
+  et celles intégrées à JavaScript.<br />
+  </span> <span class="question" onClick="javascript:show(10)"><strong>10 - Quand 
+  est-ce que les fonctions sont appelées?<br />
+  </strong></span> <span id="q10" class="hide">Lors d'événements définis dans 
+  les balises HTML.<br />
+  </span> <span class="question" onClick="javascript:show(11)"><strong>11 - Quel 
+  est le moyen le plus rapide d'obtenir des informations sur un élément HTML?<br />
+  </strong></span> <span id="q11" class="hide">La fonction getElementById.</span> 
+</p>
+<h5><a name="1.3" id="1.3"></a>PHP</h5>
+<p> <span class="question" onClick="javascript:show(12)"><strong>12 - Qu'est-ce 
+  qui ex&eacute;cute le PHP? Le client ou le serveur?</strong></span><br />
+  <span id="q12" class="hide">Le serveur.<br />
+  </span> <span class="question" onClick="javascript:show(13)"><strong>13 - Nommez 
+  quelques utilit&eacute;s du php.</strong></span><br />
+  <span id="q13" class="hide">Cr&eacute;er rapidement des pages dynamiques, r&eacute;agir 
+  aux demandes du client, effectuer des taches r&eacute;p&eacute;titives, utiliser 
+  une base de donn&eacute;es et bien plus.<br />
+  </span> <span class="question" onClick="javascript:show(14)"><strong>14 - &Agrave; 
+  quoi sert la d&eacute;claration/fonction <em>echo</em>?</strong></span><br />
+  <span id="q14" class="hide">Imprimer du texte et/ou le contenu de variable.<br />
+  </span> <span class="question" onClick="javascript:show(15)"><strong>15 - Qu'est-ce 
+  que contient la variable d'environnement $_SERVER?</strong><br />
+  </span> <span id="q15" class="hide">Un tableau d'informations sur le serveur 
+  et le client.<br />
+  </span> <span class="question" onClick="javascript:show(16)"><strong>16 - Qu'est-ce 
+  que contiennent les variables d'environnements $_POST et $_FILE?</strong><br />
+  </span> <span id="q16" class="hide">Un tableau contenant les informations sur 
+  chacun des champs envoy&eacute;s par un formulaire.<br />
+  </span> <span class="question" onClick="javascript:show(17)"><strong>17 - Qu'est-ce 
+  que contient la variable d'environnement $_GET?</strong><br />
+  </span> <span id="q17" class="hide">Un tableau des variables soumises via dans 
+  l'adresse de la page.<br />
+  </span> <span class="question" onClick="javascript:show(18)"><strong>18 - Qu'est-ce 
+  que contient la variable d'</strong></span><span class="question" onClick="javascript:show(17)"><strong>environnement</strong></span><span class="question" onClick="javascript:show(18)"><strong> 
+  $_COOKIE et quand expire ce contenu?</strong><br />
+  </span> <span id="q18" class="hide">Un tableau des cookies enregistrés sur l'ordinateur 
+  du client qui expirent dans un temps donné lors de la création du cookie.<br />
+  </span> <span class="question" onClick="javascript:show(19)"><strong>19 - Qu'est-ce 
+  que contient la variable d'</strong></span><span class="question" onClick="javascript:show(17)"><strong>environnement</strong></span><span class="question" onClick="javascript:show(19)"><strong> 
+  $_SESSION et quand expire ce contenu?</strong><br />
+  </span> <span id="q19" class="hide">Un tableau des variables de sessions du 
+  client qui expire lorsque le client quitte son navigateur.<br />
+  </span> <span class="question" onClick="javascript:show(20)"><strong>20 - Si 
+  l'on inclu avec la fonction <em>require()</em> ou <em>include()</em> une page 
+  qui contient du PHP, est-ce que cette page pourra utiliser les fonctions et 
+  les variables contenues dans la page mère?</strong><br />
+  </span> <span id="q20" class="hide">Oui si ces variables et fonctions ont été 
+  définies avant la déclaration <em>require()</em> ou <em>include()</em>.</span> 
+</p>
+<h5><a name="1.4" id="1.4"></a>MySQL</h5>
+<p> <span class="question" onClick="javascript:show(21)"><strong>21 - Est-ce que 
+  MySQL est un langage de programmation?</strong></span><br />
+  <span id="q21" class="hide">Non, c'est un serveur de bases de données.<br />
+  </span> <span class="question" onClick="javascript:show(22)"><strong>22 - Un 
+  serveur MySQL contient des ? qui contiennent des ? qui comportent des ? de différents 
+  ?.</strong></span><br />
+  <span id="q22" class="hide">Un serveur MySQL contient des <em>bases de données</em> 
+  qui contiennent des <em>tables</em> qui comportent des <em>champs</em> de différents 
+  <em>types</em>.<br />
+  </span> <span class="question" onClick="javascript:show(23)"><strong>23 - Qu'est-ce 
+  que phpMyAdmin?</strong></span><br />
+  <span id="q23" class="hide">C'est un programme fait en PHP distribué gratuitement 
+  qui permet de visualiser et de g&eacute;rer ses bases de données.<br />
+  </span> <span class="question" onClick="javascript:show(24)"><strong>24 - Qu'est-ce 
+  qu'un champ qui comporte l'extra <em>auto_increment</em>?</strong></span><br />
+  <span id="q24" class="hide">C'est un champ auquel sera assign&eacute;e automatiquement 
+  une numérotation unique.<br />
+  </span> <span class="question" onClick="javascript:show(25)"><strong>25 - Est-il 
+  nécessaire de spécifier des informations pour chacun des champs d'une table 
+  lorsque l'on ex&eacute;cute une commande <em>insert</em>, <em>update</em> ou 
+  <em>select</em>??</strong></span><br />
+  <span id="q25" class="hide">Non.<br />
+  </span> <span class="question" onClick="javascript:show(26)"><strong>26 - Est-il 
+  possible de spécifier plusieurs restrictions avec la commande <em>where</em>?</strong></span><br />
+  <span id="q26" class="hide">Oui.<br />
+  </span> </p>
+<h3><a name="2"></a>2 - Mises en situations</h3>
+<p>Attention, ces mises en situation sont faites de fa&ccedil;on assez simple 
+  et d&eacute;butante. Il ne serait pas juste de les utiliser pour de gros syst&egrave;mes. 
+  Lorsque l'on entreprend de gros programmes (mise en situation qui n'est pas 
+  question ici), il est tr&egrave;s recommand&eacute; de s&eacute;parer le PHP 
+  du HTML en utilisant un syst&egrave;me de <em>templates</em>.</p>
+<h4>Utiliser un cadre</h4>
+<h5>Mise en situation</h5>
+<p>Vous d&eacute;sirez utiliser une page qui contient un cadre contenant menu 
+  pour toutes vos pages qui seront contenues dans un dossier nomm&eacute; <em>pages</em>. 
+  Selon le lien s&eacute;lectionn&eacute; dans le menu, vous d&eacute;sirez qu'une 
+  certaine page soit affich&eacute; dans le cadre.</p>
+<h5>R&eacute;solution possible</h5>
+<p>Utiliser la fonction <em>require()</em> ou <em>include()</em> ainsi qu'une 
+  variable transmise dans l'adresse :</p>
+<p class="quote">include('pages/'.$_GET['selection'].'.html');</p>
+<p>Il serait aussi important pour des questions de s&eacute;curit&eacute; de valider 
+  le contenu de la variable soumise par l'adresse avec la fonction <em>preg_match()</em>. 
+  Dans notre cas, on limitera les caract&egrave;res &agrave; ceux alphanum&eacute;riques 
+  (<em>\w</em>) et on limitera la longueur de la variable &agrave; 100 (<em>{0,100}</em>) 
+  puisque le nom de nos pages devrait respecter ces crit&egrave;res : </p>
+<p class="quote">if(!preg_match(''/^\w{0,100}$/',$_GET['selection'])) $_GET['selection'] 
+  = 'accueil';</p>
+<p>De plus, on ajoutera une page par d&eacute;faut lorsqu'aucune variable n'est 
+  soumise dans l'adresse avec la condition suivante :</p>
+<p class="quote">if(!isset($_GET['selection'])) $_GET['selection'] = 'accueil';</p>
+<h5>&nbsp;</h5>
+<h5>Code final</h5>
+<p class="quote">&lt;html&gt;<br />
+  &lt;body&gt;<br />
+  &lt;a href=&quot;index.php?selection=accueil&quot;&gt;Accueil&lt;/a&gt;&lt;br&gt;<br />
+  &lt;a href=&quot;index.php?selection=resultats&quot;&gt;R&eacute;sultats&lt;/a&gt;&lt;br&gt;<br />
+  &lt;a href=&quot;index.php?selection=contact&quot;&gt;Contact&lt;/a&gt;<br />
+  &lt;?<br />
+  if(!isset($_GET['selection']) or !preg_match('/^\w{0,100}$/',$_GET['selection'])) 
+  $_GET['selection'] = 'accueil';<br />
+  include('pages/'.$_GET['selection'].'.html');<br />
+  ?&gt;<br />
+  &lt;/body&gt;<br />
+  &lt;/html&gt;</p>
+<h4>Du formulaire &agrave; la BDD et de la BDD &agrave; la page</h4>
+<h5>Mise en situation</h5>
+<p>Vous d&eacute;sirez dans la cadre de la lecture d'un livre dans votre cour 
+  d'anglais, utiliser une base de donn&eacute;es pour g&eacute;rer le document 
+  vocabulaire que vous devez cr&eacute;er. Nous allons pr&eacute;tendre que votre 
+  professeur d&eacute;sire pour chaque mot : le mot, la page et la traduction 
+  en fran&ccedil;ais. Il vous faudra donc pouvoir ajouter des entr&eacute;es et 
+  obtenir une liste de toutes les entr&eacute;es.</p>
+<h5>R&eacute;solution possible</h5>
+<p>On pourrait uniquement utiliser phpMyAdmin et ne pas &eacute;crire aucun programme 
+  PHP, mais nous cherchons ici quelque chose d'un peut plus fini. Nous allons 
+  donc cr&eacute;er une belle page pour ajouter les mots et une page pour obtenir 
+  une liste compl&egrave;te.</p>
+<h6>Structure de la table</h6>
+<p>Dans un premier temps, voici les champs que nous utiliserons dans notre base 
+  de donn&eacute;es :</p>
+<p>- id, auto_increment, primary key<br />
+  - page, int, longueur maximum de 3<br />
+  - word, varchar, longueur maximum de 255<br />
+  - translation, varchar, longueur maximum de 255</p>
+<p>Consid&eacute;rant qu'un &eacute;l&egrave;ve du secondaire ne lira pas le dictionnaire, 
+  on limitera le nombre de chiffres pour les num&eacute;ros de pages &agrave; 
+  3. On limitera aussi le mot et sa traduction &agrave; 255 caract&egrave;res. 
+  Voici &agrave; quoi cela ressemblera dans phpMyAdmin :</p>
+<p><img src="./images/phpmyadmin2.jpg" width="597" height="135"></p>
+<h6>Code HTML</h6>
+<p>Il nous faut ensuite un formulaire et un tableau pour afficher notre liste. 
+  Nous utiliserons ce code ou les valeurs des champs soumises s'affichent comme 
+  valeur par d&eacute;faut, nous verrons pourquoi plus tard :</p>
+<p class="quote">&lt;html&gt;<br />
+  &lt;body&gt;<br />
+  &lt;h4&gt;Add word&lt;/h4&gt;<br />
+  &lt;form name=&quot;form&quot; method=&quot;post&quot; action=&quot;&quot;&gt;<br />
+  Page <br />
+  &lt;input name=&quot;page&quot; type=&quot;text&quot; size=&quot;3&quot; maxlength=&quot;3&quot; 
+  value=&quot;&lt;?php echo $_POST['page'] ?&gt;&quot;&gt;<br />
+  &lt;br&gt;<br />
+  Word<br />
+  &lt;input name=&quot;word&quot; type=&quot;text&quot; maxlength=&quot;255&quot; 
+  value=&quot;&lt;?php echo $_POST['word'] ?&gt;&quot;&gt;<br />
+  &lt;br&gt;<br />
+  Translation<br />
+  &lt;input name=&quot;translation&quot; type=&quot;text&quot; maxlength=&quot;255&quot; 
+  value=&quot;&lt;?php echo $_POST['translation'] ?&gt;&quot;&gt;<br />
+  &lt;br&gt;<br />
+  &lt;input name=&quot;submit&quot; type=&quot;submit&quot; value=&quot;Add&quot;&gt;<br />
+  &lt;/form&gt;<br />
+  &lt;h4&gt;List&lt;/h4&gt;<br />
+  &lt;/body&gt;<br />
+  &lt;/html&gt;</p>
+<p>Vu le contexte de la mise en situation, on fera bien s&ucirc;r notre page en 
+  anglais.</p>
+<h6>Code PHP</h6>
+<p>Il reste maitenant la partie la plus ardue, la programmation PHP. Dans un premier 
+  temps, voici le code pour se connecter &agrave; la base de donn&eacute;es, v&eacute;rifier 
+  le contenu soumis par le formulaire et ajouter une entr&eacute;e s'il n'y a 
+  aucune erreur :</p>
+<p class="quote">&lt;?php <br>
+  mysql_connect('localhost','user','password');<br>
+  mysql_select_db('database');<br>
+  if(isset($_POST['page'])){<br>
+  &nbsp;&nbsp;if(!preg_match('/\d{1,3}/',$_POST['page'])){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo '&lt;p&gt;Page is not valid.';<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;$error = 1;<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;if(!preg_match('/(.){1,255}/',$_POST['word'])){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo '&lt;p&gt;Please enter word.';<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;$error = 1;<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;if(!preg_match('/(.){1,255}/',$_POST['translation'])){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo '&lt;p&gt;Please enter traduction.';<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;$error = 1;<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;if(!$error) {<br>
+  &nbsp; &nbsp;&nbsp;mysql_query('INSERT INTO `vocabulary` (`page` , `word` , 
+  `translation` )<br>
+  &nbsp; &nbsp;&nbsp;VALUES (\''.$_POST['page'].'\',\''.$_POST['word'].'\', \''.$_POST['translation'].'\')');<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;$_POST = NULL;<br>
+  &nbsp;&nbsp;} <br>
+  }<br>
+  ?&gt;</p>
+<p>On supprime le contenu de la variable $_POST lorsqu'il n'y a 
+  pas d'erreur, car on ne veut pas qu'elle s'affichent &agrave; nouveau dans le 
+  formulaire dans ce cas. </p>
+<p>Ensuite, il faut un code pour afficher le contenu de la table :</p>
+<p class="quote">&lt;?php <br>
+  $query = mysql_query('SELECT * FROM `vocabulary` ORDER BY `word` ASC');<br>
+  while($row = mysql_fetch_row($query)){<br>
+  &nbsp;&nbsp;echo '&lt;p&gt;&lt;b&gt;Word&lt;/b&gt; : '.$row[2].' (p.'.$row[1].')&lt;br&gt;&lt;b&gt;Translation&lt;/b&gt; 
+  : '.$row[3];<br>
+  }<br>
+  ?&gt;</p>
+<p>Voila tout pour le PHP, il reste &agrave; mettre le tout en commun.</p>
+<h5>Code final</h5>
+<p class="quote">&lt;?php <br>
+  mysql_connect('localhost','user','password');<br>
+  mysql_select_db('database');<br>
+  if(isset($_POST['page'])){<br>
+  &nbsp;&nbsp;if(!preg_match('/\d{1,3}/',$_POST['page'])){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo '&lt;p&gt;Page is not valid.';<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;$error = 1;<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;if(!preg_match('/(.){1,255}/',$_POST['word'])){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo '&lt;p&gt;Please enter word.';<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;$error = 1;<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;if(!preg_match('/(.){1,255}/',$_POST['translation'])){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo '&lt;p&gt;Please enter traduction.';<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;$error = 1;<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;if(!$error) {<br>
+  &nbsp; &nbsp;&nbsp;mysql_query('INSERT INTO `vocabulary` (`page` , `word` , 
+  `translation` )<br>
+  &nbsp; &nbsp;&nbsp;VALUES (\''.$_POST['page'].'\',\''.$_POST['word'].'\', \''.$_POST['translation'].'\')');<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;$_POST = NULL;<br>
+  &nbsp;&nbsp;} <br>
+  }<br>
+  ?&gt;<br>
+  &lt;html&gt;<br />
+  &lt;body&gt;<br />
+  &lt;h4&gt;Add word&lt;/h4&gt;<br />
+  &lt;form name=&quot;form&quot; method=&quot;post&quot; action=&quot;&quot;&gt;<br />
+  Page <br />
+  &lt;input name=&quot;page&quot; type=&quot;text&quot; size=&quot;3&quot; maxlength=&quot;3&quot; 
+  value=&quot;&lt;?php echo $_POST['page'] ?&gt;&quot;&gt;<br />
+  &lt;br&gt;<br />
+  Word<br />
+  &lt;input name=&quot;word&quot; type=&quot;text&quot; maxlength=&quot;255&quot; 
+  value=&quot;&lt;?php echo $_POST['word'] ?&gt;&quot;&gt;<br />
+  &lt;br&gt;<br />
+  Translation<br />
+  &lt;input name=&quot;translation&quot; type=&quot;text&quot; maxlength=&quot;255&quot; 
+  value=&quot;&lt;?php echo $_POST['translation'] ?&gt;&quot;&gt;<br />
+  &lt;br&gt;<br />
+  &lt;input name=&quot;submit&quot; type=&quot;submit&quot; value=&quot;Ajouter&quot;&gt;<br />
+  &lt;/form&gt;<br />
+  &lt;h4&gt;List&lt;/h4&gt;<br>
+  &lt;?php <br>
+  $query = mysql_query('SELECT * FROM `vocabulary` ORDER BY `word` ASC');<br>
+  while($row = mysql_fetch_row($query)){<br>
+  &nbsp;&nbsp;echo '&lt;p&gt;&lt;b&gt;Word&lt;/b&gt; : '.$row[2].' (p.'.$row[1].')&lt;br&gt;&lt;b&gt;Translation&lt;/b&gt; 
+  : '.$row[3];<br>
+  }<br>
+  ?&gt; <br />
+  &lt;/body&gt;<br />
+  &lt;/html&gt;</p>

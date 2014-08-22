@@ -1,0 +1,260 @@
+<h2>JavaScript</h2>
+<h4>Table des mati&egrave;res</h4>
+<p>1 - <a href="#1">Introduction</a><br>
+  2 - <a href="#2">JavaScript dans HTML</a><br>
+  3 - <a href="#3">Variables</a><br>
+  4 - <a href="#4">Fonctions</a><br>
+  5 - <a href="#5">Objets HTML</a><br>
+  6 - <a href="#6">R&eacute;vison</a><br>
+  7 - <a href="#7">R&eacute;f&eacute;rences</a></p>
+<h3><a name="1"></a>1 - Introduction</h3>
+<p>JavaScript est un langage client, c'est-&agrave;-dire qu'il est interpr&eacute;t&eacute; 
+  par le navigateur Web. Il existe aussi une version qui est un langage serveur, 
+  LiveWire JavaScript, que nous n'aborderons pas ici. JavaScript est &agrave; 
+  la fois le langage de programmation le plus utilis&eacute; du Web et le plus 
+  m&eacute;connu.</p>
+<p>Il y a dans un premier temps son nom qui cr&eacute;&eacute; de la confusion. 
+  Certains voient dans le pr&eacute;fixe Java un lien avec le Java, une sous-version 
+  ou une version all&eacute;g&eacute;e de Java. D&eacute;tromper vous, il n'y 
+  a aucun lien entre Java et JavaScript. Java a &eacute;t&eacute; d&eacute;velopp&eacute; 
+  chez Sun Microsystems tant dit que JavaScript l'a &eacute;t&eacute; chez Netscape. 
+  Ensuite, d'autres voient dans le suffixe Script un langage uniquement de script 
+  qui n'est pas un langage de programmation. JavaScript est certes moins complexe 
+  que Java ou C, mais ce n'est pas moins pour autant un langage de programmation.</p>
+<p>Dans un deuxi&egrave;me temps, il y a des utilisateurs amateurs qui lui font
+  une  mauvaise r&eacute;putation. La plupart des gens qui font une utilisation
+  de  JavaScript sont des amateurs, des gens qui n'ont aucune connaissance en
+  programmation,  ce qui nuit grandement &agrave; sa r&eacute;putation. JavaScript
+  peut&ecirc;tre 
+  tr&egrave;s puissant et faire beaucoup plus qu'afficher des alertes ou faire
+   de jolis boutons roll-over (boutons dont l'image change lorsque l'on passe
+  au  dessus avec la souris).</p>
+<h3><a name="2" id="2"></a>2 - JavaScript dans HTML</h3>
+<p>Tout comme les feuilles de style, le JavaScript peux &ecirc;tre introduit directement 
+  dans la page et ou dans un fichier externe. </p>
+<p>Nous allons prendre un exemple dans lequel lorsque l'on clique sur un &eacute;l&eacute;ment, 
+  une fonction est appel&eacute;e &agrave; afficher une alerte contenant un num&eacute;ro 
+  transmis &agrave; la fonction. Nous ne nous attarderons pas ici au fonctionnement 
+  des fonctions, une section suivante y &eacute;tant consacr&eacute;e.</p>
+<p>Exemple avec un code interne : </p>
+<p> <em>Fichier index.HTML</em></p>
+<p class="quote"> &lt;HTML&gt;<br>
+  <strong>&lt;script type=&quot;text/javascript&quot;&gt;<br>
+  </strong>function mafonction(variable){<br>
+  &nbsp;&nbsp;alert('Vous avez cliqu&eacute; sur l\'&eacute;l&eacute;ment # '+variable+' !')<br>
+  }<strong><br>
+  &lt;/script&gt; </strong><br/>
+  &lt;body&gt; <br>
+  &lt;span onclick=&quot;javascript:mafonction(1)&quot;&gt;&Eacute;l&eacute;ment 
+  1&lt;/span&gt;<br>
+  &lt;span onclick=&quot;javascript:mafonction(2)&quot;&gt;&Eacute;l&eacute;ment 
+  2&lt;/span&gt;<br>
+  &lt;span onclick=&quot;javascript:mafonction(3)&quot;&gt;&Eacute;l&eacute;ment 
+  3&lt;/span&gt; <br/>
+  &lt;/body&gt;<br/>
+  &lt;/HTML&gt;</p>
+<p>Exemple avec un code externe :</p>
+<p><em>Fichier index.HTML</em></p>
+<p class="quote">&lt;HTML&gt;<br/>
+  <strong>&lt;script src=&quot;fonctions.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</strong><br/>
+  &lt;body&gt; <br/>
+  &lt;span onclick=&quot;javascript:mafonction(1)&quot;&gt;&Eacute;l&eacute;ment 
+  1&lt;/span&gt;<br>
+  &lt;span onclick=&quot;javascript:mafonction(2)&quot;&gt;&Eacute;l&eacute;ment 
+  2&lt;/span&gt;<br>
+  &lt;span onclick=&quot;javascript:mafonction(3)&quot;&gt;&Eacute;l&eacute;ment 
+  3&lt;/span&gt; <br/>
+  &lt;/body&gt;<br/>
+  &lt;/HTML&gt;</p>
+<p><em>Fichier fonctions.js</em></p>
+<p class="quote">function mafonction(variable){<br>
+  &nbsp;&nbsp;alert('Vous avez cliqu&eacute; sur l\'&eacute;l&eacute;ment # '+variable+' !');<br>
+  }</p>
+<p>Le r&eacute;sultat est le suivant pour les deux possibilit&eacute;s (cliquez 
+  sur les &eacute;l&eacute;ments): </p>
+<p class="example"><script type="text/javascript">
+function mafonction(variable){
+alert('Vous avez cliqué sur l\'élément # '+variable+' !')
+}
+</script> 
+<span onclick="javascript:mafonction(1)">Élément 1</span>
+<span onclick="javascript:mafonction(2)">Élément 2</span>
+<span onclick="javascript:mafonction(3)">Élément 3</span> </p>
+<p>Il y a plusieurs avantages &agrave; utiliser un fichier externe. On peut le 
+  modifier sans avoir &agrave; modifier toutes les pages. De plus, le navigateur 
+  n'a qu'&agrave; charger le JavaScript une seule fois. </p>
+<p>Mais il peut &ecirc;tre, dans certaines situations, plus avantageux d'int&eacute;grer 
+  le JavaScript directement dans la page comme si par exemple le code est lourd 
+  et utilis&eacute; uniquement dans une page.</p>
+<h3><a name="3" id="3"></a>3 - Variables</h3>
+<p>Avec JavaScript, il est possible d'utiliser des variables. Une variable contient 
+  une information ou plusieurs informations sous forme de tableau. Lorsqu'une 
+  variable est initi&eacute;e, elle existe jusqu'&agrave; ce que le client quitte 
+  la page. Cependant, si une variable est initi&eacute;e &agrave; l'int&eacute;rieur 
+  d'une fonction, elle existera uniquement &agrave; l'int&eacute;rieur de la fonction 
+  lorsqu'elle est appel&eacute;e. Voici un exemple simple de la cr&eacute;ation 
+  d'une variable nomm&eacute;e <em>nom</em> qui contient l'information <em>Monsieur 
+  Culet</em> : </p>
+<p class="quote">nom = &quot;Monsieur Culet&quot;</p>
+<p>Le nom d'une variable doit d&eacute;buter par un caract&egrave;re alphab&eacute;tique 
+  ou un _ et le reste peux aussi contenir des chiffres. Il est important de ne 
+  pas oublier que JavaScript est sensible aux majuscules. La valeur d'une variable 
+  peut &ecirc;tre un nombre (nom = 312), une valeur logique (nom = true ou nom 
+  = false), une cha&icirc;ne de caract&egrave;res (nom = &quot;Une cha&icirc;ne 
+  de caract&egrave;res!&quot;) ou encore une valeur nulle (nom = null). Il est 
+  important aussi de savoir que lorsque l'on veut utiliser le caract&egrave;re 
+  qui d&eacute;fini le d&eacute;but et la fin de la chaine (&quot; ou ') &agrave; 
+  l'int&eacute;rieur de ceux-ci, il faut utiliser l'anti-slash devant celui-ci 
+  et c'est valable autant pour JavaScript que pour PHP et MySQL. </p>
+<p>Il est aussi possible qu'une variable contienne plusieurs sous-variables, ce 
+  que l'ont appelle un tableau. Un tableau permet de regrouper des donn&eacute;es 
+  dans un seul &eacute;l&eacute;ment et il en va comme suit :</p>
+<p class="quote">noms = new Array(&quot;Monsieur Culet&quot;,&quot;Monsieur Landry&quot;,&quot;Madame 
+  Claire&quot;)</p>
+<p>Par la suite, si on veut utiler une donn&eacute;e du tableau pour par exemple 
+  d&eacute;finir de nouvelle variables, il faut utiliser des crochets ainsi </p>
+<p class="quote">nom_un = noms[0]<br>
+  nom_deux = noms[1]<br>
+  nom_trois = noms[2]</p>
+<p>Il est important de noter que la num&eacute;rotation commence &agrave; 0 et 
+  non &agrave; 1, et c'est la m&ecirc;me chose dans la plupart des langages, dont 
+  celui-ci et PHP. Mais il y a d'autres mani&egrave;res de cr&eacute;er des tableaux. 
+  Il est possible de proc&eacute;der comme suit, ce qui permet de rajouter des 
+  donn&eacute;es au tableau apr&egrave;s la cr&eacute;ation de celui-ci :</p>
+<p class="quote">noms = new Array(3)<br>
+  noms[0]=&quot;Monsieur Culet&quot;<br>
+  noms[1]=&quot;Monsieur Landry&quot;<br>
+  noms[2]=&quot;Madame Claire&quot;</p>
+<p>Il est possible de d&eacute;finir &agrave; l'avance le nombre d'entr&eacute;es 
+  dans le tableau, mais c'est optionnel. On aurait donc pu &eacute;crire aussi 
+  : </p>
+<p class="quote">noms = new Array()<br>
+  noms[0]=&quot;Monsieur Culet&quot;<br>
+  noms[1]=&quot;Monsieur Landry&quot;<br>
+  noms[2]=&quot;Madame Claire&quot;<br>
+  noms[3]=&quot;Madame Blanche&quot;</p>
+<p>On peut aussi utiliser des noms &agrave; la place de nombres pour chacune des 
+  entr&eacute;es de la table comme suit:</p>
+<p class="quote">noms = new Array()<br>
+  noms[&quot;monsieur1&quot;]=&quot;Monsieur Culet&quot;<br>
+  noms[&quot;monsieur2&quot;]=&quot;Monsieur Landry&quot;<br>
+  noms[&quot;madame1&quot;]=&quot;Madame Claire&quot;</p>
+<p>De plus, une entr&eacute;e du tableau peut toujours contenir un autre tableau 
+  ce qui permet de cr&eacute;er une certaine hi&eacute;archie. Exemple :</p>
+<p class="quote">manger = new Array()<br>
+  manger[&quot;liquide&quot;] = new Array(&quot;eau&quot;,&quot;jus&quot;,&quot;lait&quot;)<br>
+  manger[&quot;solide&quot;] = new Array(&quot;pomme&quot;,&quot;orange&quot;,&quot;poire&quot;)</p>
+<p>C'est donc tout ce qu'il y a savoir pour la base de cr&eacute;ation de variables.</p>
+<h3><a name="4" id="4"></a>4 - Fonctions</h3>
+<p>Il y a 2 cat&eacute;gories de fonctions, celles d&eacute;finies par d&eacute;faut 
+  par JavaScript et celles d&eacute;finies par l'utilisateur. Les fonctions d&eacute;finies 
+  par JavaScript permettent par exemple d'afficher une alerte, d'obtenir le temps, 
+  etc. Vous pouvez trouver toutes ces fonctions en cherchant sur le Web ou en 
+  consultant les liens propos&eacute;s plus loin. Nous nous attarderons ici aux 
+  fonctions d&eacute;finies par l'utilisateur. Nous verrons dans un premier temps 
+  comment cr&eacute;er un fonction et dans un deuxi&egrave;me temps comment appeler 
+  une fonction. </p>
+<h4>Cr&eacute;er une fonction</h4>
+<p>Lorsque l'on cr&eacute;e une fonction, il faut utiliser cette syntaxe : </p>
+<p class="quote">function [nom de la fonction]([variable1],[variable2],[variable3]){<br>
+  &nbsp;&nbsp;[code] <br>
+  &nbsp;&nbsp;[return]<em><br>
+  </em>}</p>
+<p><em>[nom de la fonction]</em></p>
+<p>Le nom de la fonction sera utilis&eacute; afin de l'appeler et ne doit pas 
+  &ecirc;tre le nom d'une fonction d&eacute;j&agrave; &eacute;tablie par JavaScript. 
+  Il est important d'utiliser uniquement des caract&egrave;res alphanum&eacute;riques 
+  en minuscule.</p>
+<p><em>[variable1],[variable2],[variable3]</em></p>
+<p>Les variables sont les donn&eacute;es qui pourront &ecirc;tre transmises lors 
+  de l'appel de la fonction. Il est possible d'ajouter autant de variables (s&eacute;par&eacute; 
+  par des virgules) &agrave; la fonction que voulu. Il est aussi possible d'inclure 
+  aucune variable, mais il faut quand m&ecirc;me mettre les parenth&egrave;ses 
+  comme suit : ().</p>
+<p><em>[code]</em></p>
+<p>Le code est ce qui sera ex&eacute;cut&eacute; lors de l'appel de la fonction. 
+  Il peut utiliser les variables transmises. Il peut aussi retourner ou non une 
+  information &agrave; ce qui a appel&eacute; la fonction. Pour retourner une 
+  information, il faut utiliser la d&eacute;claration <em>return </em>suivie d'une 
+  information &agrave; retourner. Voici un exemple ou nous voulons que la variable 
+  <em>result</em> contienne le r&eacute;sultat de la fonction <em>mafonction </em>: 
+</p>
+<p class="quote">function mafonction(var1,var2){<br>
+  &nbsp;&nbsp;calcul=var1*var2+10<br>
+  &nbsp;&nbsp;return calcul<br>
+  }<br>
+  result=mafonction(3,4)</p>
+<p>La variable <em>result</em> contiendra alors 24.</p>
+<h4>Appeler une fonction</h4>
+<p>Les fonctions sont appel&eacute;es lors d'&eacute;v&eacute;nements d&eacute;finis 
+  dans les balises HTML. Par exemple avec l'&eacute;v&eacute;nement <em>onclick</em> 
+  (lors du clic) : </p>
+<p class="quote">&lt;a href=&quot;#&quot; <strong>onclick=&quot;javascript:mafonction()&quot;</strong>&gt;Appeler 
+  ma fonction!&lt;/a&gt;</p>
+<p>Vous pouvez obtenir une liste de ces &eacute;v&eacute;nements dans la plupart 
+  des &eacute;diteurs de site Web tel que Macromedia Dreamweaver ou en consultant 
+  le site du <em><a href="http://www.w3.org/TR/REC-html40/interact/scripts.html#h-18.2.3" target="_blank">World 
+  Wide Web Consortium</a> </em> (organisme qui d&eacute;finit les standards du 
+  Web)<em>.</em></p>
+<h3><a name="5" id="5"></a>5 - Objets HTML</h3>
+<p>Maintenant que vous savez cr&eacute;er et utiliser des variables, cr&eacute;er 
+  et appeler des fonctions, il est temps de mettre tout &ccedil;a en lien avec 
+  les &eacute;l&eacute;ments de vos pages. Lorsque vous cr&eacute;ez une structure 
+  avec HTML, il est possible d'obtenir toutes les informations sur celle-ci &agrave; 
+  l'int&eacute;rieur de JavaScript. Il y a deux fa&ccedil;ons d'obtenir ces informations 
+  : avec la variable <em>document</em> et un chemin ou avec la variable <em>document</em> 
+  et la fonction <em>getElementById</em>. Si l'on utilise la m&eacute;thode avec 
+  chemin, il faut respecter la hi&eacute;rarchie de notre HTML. Voici un exemple 
+  ou l'on utilise les deux m&eacute;thodes pour modifier la valeur d'une case 
+  d'un formulaire (value):</p>
+<p class="quote">&lt;form name=&quot;mon_formulaire&quot; method=&quot;post&quot; 
+  action=&quot;&quot;&gt;<br>
+  &lt;input type=&quot;text&quot; value=&quot;D&eacute;faut&quot; name=&quot;mon_champ&quot; 
+  id=&quot;id_de_mon_champ&quot;&gt;<br>
+  &lt;/form&gt;<br>
+  &lt;script type=&quot;text/javascript&quot;&gt;<br>
+  function mafonction1(variable){<br>
+  &nbsp;&nbsp;document.mon_formulaire.mon_champ.value = &quot;M&eacute;thode document&quot;<br>
+  }<br>
+  function mafonction2(variable){<br>
+  &nbsp;&nbsp;document.getElementById(&quot;id_de_mon_champ&quot;).value = &quot;M&eacute;thode 
+  document&quot;<br>
+  } <br>
+  &lt;/script&gt;<br>
+  &lt;span onclick=mafonction1()&gt;M&eacute;thode <em>document</em>&lt;/span&gt; 
+  ou &lt;span onclick=mafonction2()&gt;M&eacute;thode <em>getElementById</em>&lt;/span&gt;</p>
+<p>Et le r&eacute;sultat est le suivant :</p>
+<form name="mon_formulaire" method="post" action="">
+<p class="example">
+<input type="text" value="Défaut" name="mon_champ" id="id_de_mon_champ">
+<script type="text/javascript">
+function mafonction1(variable){
+document.mon_formulaire.mon_champ.value = "Méthode document"
+}
+function mafonction2(variable){
+document.getElementById("id_de_mon_champ").value = "Méthode getElementById"
+}
+</script>
+<span onclick=mafonction1()>Méthode document</span> ou <span onclick=mafonction2()>méthode getElementById</span></p>
+</form>
+<p>C'est maintenant &agrave; vous de d&eacute;couvrir toutes les combinaisons 
+  possibles d'&eacute;l&eacute;ments HTML, de propri&eacute;t&eacute;s de ces 
+  &eacute;l&eacute;ments et de fonctions JavaScript. Si vous continuez votre apprentissage 
+  au d&eacute;veloppement Web, vous pourrez m&ecirc;me d&eacute;couvrir les combinaisons 
+  possibles avec PHP et MySQL.</p>
+<h3><a name="6" id="6"></a>6 - R&eacute;vison</h3>
+<p> <a href="revision.html#1.2">Voir la section &agrave; cet effet sur la page 
+  r&eacute;vison.</a></p>
+<h3><a name="7" id="7"></a>7 - R&eacute;f&eacute;rences</h3>
+<p>JavaScript (sans date), sur le site Douglas Crockford's Wrrrld Wide Web. Consult&eacute; 
+  le 13 f&eacute;vrier 2006.<br>
+  <a href="http://www.crockford.com/javascript/" target="_blank">http://www.crockford.com/javascript/</a></p>
+<p>JavaScript Tutorial (sans date), sur le site W3School Online Website. Consult&eacute; 
+  le 13 f&eacute;vrier 2006.<br>
+  <a href="http://www.w3schools.com/js/">http://www.w3schools.com/js/</a></p>
+<p>JavaScript Guide (sans date), sur le site Netscape. Consult&eacute; le 13 f&eacute;vrier 
+  2006.<br>
+  <a href="http://wp.netscape.com/eng/mozilla/3.0/handbook/javascript/">http://wp.netscape.com/eng/mozilla/3.0/handbook/javascript/</a></p>
+HTML 4.01 Specifiation (sans date), sur le site World Wide Web Constortium. Consult&eacute; 
+le 20 f&eacute;vrier 2006.<br>
+<a href="http://www.w3.org/TR/REC-html40/interact/scripts.html#h-18.2.3" target="_blank">http://www.w3.org/TR/REC-HTML40/interact/scripts.HTML#h-18.2.3</a>

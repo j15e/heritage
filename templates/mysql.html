@@ -1,0 +1,217 @@
+<h2>MySQL</h2>
+<h4>Table des mati&egrave;res</h4>
+<p>1 - <a href="#1">Introduction</a><br>
+  2 - <a href="#2">phpMyAdmin</a><br>
+  2 - <a href="#3">Connexion</a> <br>
+  4 - <a href="#4">Cr&eacute;er une table</a><br>
+  5 - <a href="#5">Requ&ecirc;tes</a><br>
+  6 - <a href="#6">R&eacute;vision</a><br>
+  7 - <a href="#7">R&eacute;f&eacute;rences</a></p>
+<h3><a name="1"></a>1 - Introduction</h3>
+<p>MySQL n'est pas un langage de programmation, c'est une base de donn&eacute;es 
+  que l'on peut utiliser avec PHP, Perl, C, etc. C'est une solution tr&egrave;s 
+  reconnue et utilis&eacute;e, car elle est Open Source, donc gratuite. Une base 
+  de donn&eacute;es c'est quelque chose d'assez abstrait, c'est un genre d'entrep&ocirc;t 
+  virtuel de donn&eacute;es. Voici un sh&eacute;mas d&eacute;montrant comment 
+  on peut s'imaginer cette structure : </p>
+<p><img src="./images/mysql.gif" width="573" height="485"></p>
+<p>Il peut bien s&ucirc;r avoir un nombre infini de bases de donn&eacute;es, de 
+  tables, de champs dans la structures et de donn&eacute;es. La structure et les 
+  donn&eacute;es ici sont uniquement un exemple, la structure et les donn&eacute;es 
+  pourraient &ecirc;tre tout autres. De plus, chaque table contient une structure 
+  et des donn&eacute;es diff&eacute;rentes.</p>
+<p>On peut illustrer une table d'une base de donn&eacute;es comme suit :</p>
+<table width="378" border="0" cellspacing="0" cellpadding="0">
+  <tr bgcolor="#999999"> 
+    <td width="36%"><div align="center"><strong>champ1</strong></div></td>
+    <td width="35%"><div align="center"><strong>champ2</strong></div></td>
+    <td width="29%"><div align="center"><strong> champ3</strong></div></td>
+  </tr>
+  <tr bgcolor="#CCCCCC"> 
+    <td><div align="center">champ1 valeur1</div></td>
+    <td><div align="center">champ2 valeur1</div></td>
+    <td><div align="center">champ3 valeur1</div></td>
+  </tr>
+  <tr bgcolor="#CCCCCC"> 
+    <td><div align="center">champ1 valeur2</div></td>
+    <td><div align="center">champ2 valeur2</div></td>
+    <td><div align="center">champ3 valeur2</div></td>
+  </tr>
+  <tr bgcolor="#CCCCCC"> 
+    <td><div align="center">champ1 valeur3</div></td>
+    <td><div align="center">champ2 valeur3</div></td>
+    <td><div align="center">champ3 valeur3</div></td>
+  </tr>
+</table>
+<p>Ou plus contextuellement ainsi :</p>
+<table width="378" border="0" cellspacing="0" cellpadding="0">
+  <tr bgcolor="#999999"> 
+    <td width="36%"><div align="center"><strong>id</strong></div></td>
+    <td width="35%"> 
+      <div align="center"><strong>nom</strong></div></td>
+    <td width="29%">
+<div align="center"><strong>date</strong></div></td>
+  </tr>
+  <tr bgcolor="#CCCCCC"> 
+    <td><div align="center">1</div></td>
+    <td><div align="center">Monsieur Culet</div></td>
+    <td><div align="center">04</div></td>
+  </tr>
+  <tr bgcolor="#CCCCCC"> 
+    <td><div align="center">2</div></td>
+    <td><div align="center">Monsieur Dugay</div></td>
+    <td><div align="center">35</div></td>
+  </tr>
+  <tr bgcolor="#CCCCCC"> 
+    <td><div align="center">3</div></td>
+    <td><div align="center">Madame Green</div></td>
+    <td><div align="center">70</div></td>
+  </tr>
+</table>
+<p>Il peut y avoir un nombre infini de champs dans une table, qui sont d&eacute;finis 
+  lors de sa cr&eacute;ation. Les champs peuvent contenir plusieurs types de donn&eacute;es 
+  sp&eacute;cifiques comme des dates, des nombres d'une certaine longueur, des 
+  cha&icirc;nes de caract&egrave;res d'une longueur d&eacute;finie, etc. ou tout 
+  simplement du texte.</p>
+<p>Il peut aussi avoir plusieurs bases de donn&eacute;es, mais vous n'aurez probablement 
+  pas ce genre de privil&egrave;ge avec les h&eacute;bergeurs gratuit comme pingouin.ca 
+  qui fournissent en g&eacute;n&eacute;ral une seule base de donn&eacute;es par 
+  client. Il est utile d'avoir plusieurs bases de donn&eacute;es pour ne pas m&eacute;langer 
+  les tables de diff&eacute;rents sites Web h&eacute;berg&eacute;s sur un m&ecirc;me 
+  plan ou sur un m&ecirc;me serveur d&eacute;di&eacute;.</p>
+<h3><a name="2" id="2"></a>2 - phpMyAdmin</h3>
+<p>phpMyAdmin est un programme fait en PHP distribu&eacute; gratuitement qui permet 
+  de visualiser et de g&eacute;rer ses bases de donn&eacute;es. Ce programme est 
+  en g&eacute;n&eacute;ral install&eacute; chez tous les h&eacute;bergeurs qui 
+  supportes PHP et MySQL, c'est un &eacute;l&eacute;ment presque essentiel au 
+  d&eacute;veloppement d'un site dynamique. Voici donc &agrave; quoi ressemble 
+  l'interface de ce programme lorsque vous avez s&eacute;lectionn&eacute; votre 
+  base de donn&eacute;es :</p>
+<p><img src="./images/phpmyadmin.jpg" width="600" height="322"></p>
+<h3><a name="3" id="3"></a>3 - Connexion</h3>
+<p>Comme on peut s'en douter, il n'est pas souhaitable de partager toutes les 
+  donn&eacute;es de sa base &agrave; tout le monde, il faut donc en g&eacute;n&eacute;ral 
+  s'identifier pour y avoir acc&egrave;s. Il y a certes plusieurs variantes dans 
+  la m&eacute;thode de proc&eacute;der, mais je vous pr&eacute;senterai ici la 
+  m&eacute;thode dans sa plus simple expression. Il faut pour ce, conna&icirc;tre 
+  le nom de son serveur (habituellement <em>localhost</em>), son nom d'utilisateur, 
+  son mot de passe et la base de donn&eacute;es &agrave; laquelle ont veut acc&eacute;der 
+  :</p>
+<p class="quote">mysql_connect('serveur','nom d\' utilisateur','mot de passe');<br>
+  mysql_select_db('base de donn&eacute;es');</p>
+<p>Voil&agrave; donc tout ce qu'il faut (2 fonctions) pour se connecter &agrave; 
+  un serveur de bases de donn&eacute;es et s&eacute;lectionner une base.</p>
+<h3><a name="4" id="4"></a>4 - Cr&eacute;er une table</h3>
+<p>Afin de cr&eacute;er une table, on peut &eacute;crire une requ&ecirc;te &agrave; 
+  la main ou avoir recourt &agrave; un programme comme phpMyAdmin. Puisque l'on 
+  cr&eacute;e en g&eacute;n&eacute;ral une table une seule et unique fois et qu'il 
+  est ici uniquement question d'une introduction au d&eacute;veloppement Web, 
+  il est plus efficace d'utiliser l'interface de phpMyAdmin pr&eacute;vue &agrave; 
+  cet effet.</p>
+<p>Pour cr&eacute;er sa table, il faut dans un premier temps se connecter &agrave; 
+  phpMyAdmin. Ensuite il faut s&eacute;lectionner la base de donn&eacute;es sur 
+  laquelle on d&eacute;sire cr&eacute;er la table. La premi&egrave;re &eacute;tape 
+  est de choisir un nom et un nombre de champs. Il vous sera ensuite non seulement 
+  possible de choisir le nom des champs, mais de choisir de multiples options 
+  pour chacun de ces champs. D&eacute;pendamment de la version de votre serveur 
+  MySQL et de votre phpMyadmin, les options peuvent diff&eacute;rer, mais j'aborderai 
+  ici les principales :</p>
+<h5>Field</h5>
+<p>Tout simplement le nom de votre champ.</p>
+<h5>Type</h5>
+<p>Plusieurs types vous sont offerts et je ne les expliquerai pas tous, mais je 
+  vous explique quelques-unes des multiples utilit&eacute;s. En assignant un certain 
+  type &agrave; un champ, on s'assure en premier lieu de toujours se retrouver 
+  avec le bon type de donn&eacute;es au bon endroits dans sa table (ex.: pas de 
+  lettres ou il ne devrait y avoir que des chiffres). Ensuite, lorsque vous d&eacute;sirerez 
+  s&eacute;lectionner des enregistrements, vous pourrez les classer de fa&ccedil;on 
+  ad&eacute;quate (ex: alphab&eacute;tique, num&eacute;rique, dates). Les principaux 
+  types &agrave; conna&icirc;tre sont : </p>
+<p>- <em>varchar</em> : texte d'une longueur maximum de 255 caract&egrave;res ou 
+  moins (&agrave; d&eacute;finir dans l'option de longueur);<br>
+  - <em>text </em>: texte d'une longueur ind&eacute;finie;<br>
+  - <em>date</em> : date au format aaaa-mm-jj;<br>
+  - <em>int</em> : chiffre;</p>
+<h5>Length/Values</h5>
+<p>La longueur est tout simplement le nombre maximum de caract&egrave;res pour 
+  le champ. La valeur est utilis&eacute;e dans le cas des types <em>set</em> et 
+  <em>enum</em>, qui permettent d'avoir un nombre restreint de valeurs possible 
+  qui sont d&eacute;finies dans cette option.</p>
+<h5>Null</h5>
+<p>L'option <em>null</em> permet d'assigner une valeur nulle au champ lorsque 
+  qu'aucune valeur n'est sp&eacute;cifi&eacute;e lors de l'ajout d'un enregistrement 
+  &agrave; la table.</p>
+<h5>Default</h5>
+<p>L'option <em>default </em>permet d'assigner une valeur de votre choix au champ 
+  lorsque qu'aucune valeur n'est sp&eacute;cifi&eacute;e lors de l'ajout d'un 
+  enregistrement &agrave; la table.</p>
+<h5>Extra</h5>
+<p>Cette option permet l'ajout d'un <em>auto_increment</em>. Un incr&eacute;ment 
+  automatique (<em>auto_increment</em>) assigne &agrave; chaque enregistrement 
+  une num&eacute;rotation unique qui d&eacute;bute &agrave; 1 (et non-pas &agrave; 
+  0 comme les tableaux de PHP et JavaScript). Cela permet d'identifier de fa&ccedil;on 
+  distinque chaque enregistrement dans la table.</p>
+<h5>Primary</h5>
+<p>Cette option permet d'emp&ecirc;cher les entr&eacute;es doubles et sera utilis&eacute;e 
+  pour class&eacute; les donn&eacute;es, on l'utilise souvent avec l'extra <em>auto_increment</em> 
+  pour &eacute;viter d'avoir des id qui ne seraient pas uniques.</p>
+<h3><a name="5" id="5"></a>5 - Requ&ecirc;tes</h3>
+<p>Pour envoyer quelconque sorte de requ&ecirc;te &agrave; MySQL, que ce soit 
+  pour ins&eacute;rer, mettre &agrave; jour, supprimer ou s&eacute;lectionner 
+  des donn&eacute;es, il faut faire appel &agrave; la fonction <em>mysql_query</em>. 
+  Il faut &agrave; l'int&eacute;rieur de cette fonction utiliser et respecter 
+  la syntaxe de MySQL qui est tout autre que celle de PHP.</p>
+<h5>INSERT : ins&eacute;rer un enregistrement</h5>
+<p>Il faut utiliser cette syntaxe dans laquelle il faut bien s&ucirc;r changer 
+  les valeurs en italiques par celles appropri&eacute;es &agrave; votre situation:</p>
+<p class="quote">mysql_query('INSERT INTO <em>table</em> (<em>champ1</em>,<em>champ2</em>,<em>champ3</em>) 
+  VALUES(<em>\'valeur1</em>\',\'<em>valeur2</em>\',\'<em>valeur3</em>\')');</p>
+<p>Il n'est pas n&eacute;cessaire d'inclure tous les champs dans la requ&ecirc;te 
+  si vous d&eacute;sirez qu'ils soient vides ou si ils se remplissent automatiquement 
+  (ce qui est souvent le cas du champ <em>id </em>auquel on assigne habituellement 
+  l'extra <em>auto_increment</em> [incr&eacute;ment automatique]).</p>
+<h5>UPDATE : mettre &agrave; jour un ou des enregistrements</h5>
+<p>Il faut utiliser cette syntaxe dans laquelle il faut changer les valeurs en 
+  italiques par celles appropri&eacute;es &agrave; votre situation:</p>
+<p class="quote">mysql_query('UPDATE <em>table</em> SET <em>champ1</em> = \'<em><em>valeur1</em></em>\'');</p>
+<p>Il n'est pas n&eacute;cessaire d'inclure tous les champs dans la requ&ecirc;te 
+  si vous d&eacute;sirez qu'uniquement certains d'entre eux soient mis &agrave; 
+  jour. </p>
+<h5>DELETE : supprimer un ou des enregistrements</h5>
+<p>Il faut utiliser cette syntaxe dans laquelle il faut changer les valeurs en 
+  italiques par celles appropri&eacute;es &agrave; votre situation:</p>
+<p class="quote">mysql_query('DELETE FROM <em>table</em>');</p>
+<p>Certes ici nous supprimerions tout le contenu de notre table, c'est pourquoi 
+  il faut conna&icirc;tre les arguments WHERE et LIMIT qui sont expliqu&eacute;s 
+  plus bas.</p>
+<h5>SELECT : s&eacute;lectionner un ou des enregistrements</h5>
+<p>Il faut utiliser cette syntaxe dans laquelle il faut changer les valeurs en 
+  italiques par celles apropri&eacute;s &agrave; votre situation:</p>
+<p class="quote">mysql_query('SELECT <em>champ1, champ2</em> FROM <em>table</em>');</p>
+<p>On peut s&eacute;lectionner seulement certains champs en les sp&eacute;cifiant 
+  s&eacute;par&eacute;s par des virgules comme ci-dessus ou tous les s&eacute;lectionner 
+  en utilisant un ast&eacute;risque (*). L'avantage est qu'il est plus efficace 
+  pour la rapidit&eacute; de notre site de s&eacute;lectionner seulement les donn&eacute;es 
+  que l'on entend utiliser. Encore une fois, il est utile d'utiliser les arguments 
+  WHERE et LIMIT.</p>
+<h5>WHERE, LIMIT : ajouter des restrictions aux requ&ecirc;tes</h5>
+<p>Il est utile de sp&eacute;cifier une restriction (<em>WHERE</em>) ou un nombre 
+  maximum de champs &agrave; modifier (<em>LIMIT</em>) pour les requ&ecirc;tes 
+  de mise &agrave; jour, de suppression et de s&eacute;lection. La restriction 
+  <em>WHERE</em> permet de d'ex&eacute;cuter la commande uniquement aux enregistrements 
+  qui ont un ou des champs qui respectent certaines conditions (=, &gt;, &lt;, 
+  LIKE, etc.) que l'on retrouve dans la documentation de <a href="http://dev.mysql.com/doc/refman/5.0/en/selecting-rows.html" target="_blank">MySQL</a>. 
+  Exemple : </p>
+<p class="quote">mysql_query('DELETE FROM <em>table</em> WHERE <em>id = 3</em>');</p>
+<p>On peut aussi faire une combinaison de plusieurs conditions :</p>
+<p class="quote">mysql_query('DELETE FROM <em>table</em> WHERE <em>(id &gt; 1 
+  &amp; id &lt; 10) and date &gt; 00-03-2005</em>');</p>
+<h3><a name="6" id="6"></a>6 - R&eacute;vison</h3>
+<p><a href="revision.html#1.4">Voir la section &agrave; cet effet sur la page 
+  r&eacute;vison.</a></p>
+<h3><a name="7" id="7"></a>7 - R&eacute;f&eacute;rences</h3>
+<p>PHP D&eacute;butant (sans date). Consult&eacute; le 5 avril 2006.<br>
+  <a href="http://www.phpdebutant.org" target="_blank">http://www.phpdebutant.org</a></p>
+<p>MySQL documentation (sans date), sur le site MySQL. Consult&eacute; le 6 avril 
+  2006.<br>
+  <a href="http://dev.mysql.com/doc/" target="_blank">http://dev.mysql.com/doc/</a></p>

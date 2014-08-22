@@ -1,0 +1,125 @@
+<h2>CSS</h2>
+<h4>Table des mati&egrave;res</h4>
+<p>1 - <a href="#1">Introduction</a><br/>
+  2 - <a href="#2">Feuilles de style</a><br/>
+  3 - <a href="#3">Syntaxe</a><br>
+  4 - <a href="#4">R&eacute;vison</a><br>
+  5 - <a href="#5">Références</a></p>
+<h3><a name="1" id="1"></a>1 - Introduction</h3>
+<p>Avant de vous expliquer comment utiliser le CSS, il serait important de conna&icirc;tre 
+  ses origines. Le CSS a &eacute;t&eacute; introduit avec le HTML 4.0 afin de 
+  r&eacute;gler un probl&egrave;me. Le HTML servait &agrave; la base uniquement 
+  &agrave; d&eacute;finir le contenu d'une page (exemples; &lt;table&gt;&lt;/table&gt; 
+  : ceci est un tableau; &lt;tr&gt;&lt;/tr&gt; : ceci est une ligne du tableau; 
+  &lt;td&gt;&lt;/td&gt; : ceci est une colonne du tableau; &lt;a&gt;&lt;/a&gt; 
+  : ceci est un lien; etc.) mais les 2 navigateurs les plus connus ont ajout&eacute; 
+  des balises et des attributs aux sp&eacute;cifications du HTML original afin 
+  de modifier le style de ces &eacute;l&eacute;ments (exemple; &lt;table bgcolor=&quot;red&quot;&gt;&lt;/table&gt; 
+  : un tableau au fond rouge). Comme suite &agrave; ces ajouts, il est devenu 
+  difficile de s&eacute;parer le contenu de la forme de pr&eacute;sentation et 
+  de faire un site comptabible avec tous les navigateurs. CSS, acronyme de &quot;Cascading 
+  Style Sheet&quot;, vient donc r&eacute;gler ce probl&egrave;me en se s'occupant 
+  de d&eacute;finir comment les &eacute;l&eacute;ments HTML (tableaux, textes, 
+  liens, etc.) sont affich&eacute;s.</p>
+<h3><a name="2" id="2"></a>2 - Feuille de style</h3>
+<p> L'affichage des &eacute;l&eacute;ments est d&eacute;fini par des styles qui 
+  sont en g&eacute;n&eacute;ral enregistr&eacute;s dans une feuille de style (fichier 
+  externe) mais qui peuvent aussi &ecirc;tre appliqu&eacute;s directement aux 
+  &eacute;l&eacute;ments &agrave; travers HTML. Voici deux exemples ou l'on change 
+  la couleur par d&eacute;faut des liens (bleu) pour le noir.</p>
+<p>Exemple sans feuille de style : </p>
+<p> <em>Fichier index.html</em></p>
+<p class="quote"> &lt;html&gt;<br/>
+  &lt;body&gt; <br/>
+  &lt;a href=&quot;test.html&quot; <strong>style=&quot;color:black;&quot;</strong>&gt;Lien 
+  1 &lt;/a&gt;<br/>
+  &lt;a href=&quot;test.html&quot;<strong> style=&quot;color:black;&quot;</strong>&gt;Lien 
+  2&lt;/a&gt;<br/>
+  &lt;a href=&quot;test.html&quot;<strong> style=&quot;color:black;&quot;</strong>&gt;Lien 
+  3&lt;/a&gt;<br/>
+  &lt;/body&gt;<br/>
+  &lt;/html&gt;</p>
+<p>Exemple avec une feuille de style :</p>
+<p><em>Fichier index.html</em></p>
+<p class="quote">&lt;html&gt;<br/>
+  <strong>&lt;link href=&quot;feuille.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</strong><br/>
+  &lt;body&gt; <br/>
+  &lt;a href=&quot;test.html&quot;&gt;Lien 1 &lt;/a&gt;<br/>
+  &lt;a href=&quot;test.html&quot;&gt;Lien 2&lt;/a&gt;<br/>
+  &lt;a href=&quot;test.html&quot;&gt;Lien 3&lt;/a&gt;<br/>
+  &lt;/body&gt;<br/>
+  &lt;/html&gt;</p>
+<p><em>Fichier feuille.css</em></p>
+<p class="quote">a{<br/>
+  color:black;<br/>
+  }</p>
+<p>Les deux exemples donneront le r&eacute;sultat suivant :</p>
+<p class="example">
+<a href="test.html" style="color:black;">Lien 1</a>
+<a href="test.html" style="color:black;">Lien 2</a>
+<a href="test.html" style="color:black;">Lien 3</a></p>
+<p>Nous utiliserons ipso facto ici la m&eacute;thode avec une feuille de style 
+  externe qui est bien plus utile, car on peut utiliser le m&ecirc;me style pour 
+  plusieurs &eacute;l&eacute;ments sans avoir &agrave; le r&eacute;p&eacute;ter 
+  &agrave; chaque fois et s&eacute;parer de fa&ccedil;on plus claire le contenu 
+  du contenant. L'utilisation de la feuille externe permet aussi de changer tout 
+  le style de son site sans avoir &agrave; modifier aucune page.</p>
+<p>S'il y a plusieurs styles qui s'appliquent &agrave; un seul item, les attributs 
+  seront seront utilis&eacute;s dans cet ordre de priorit&eacute; (le premier 
+  ayant la plus haute priorit&eacute;): </p>
+<p>1. Style sp&eacute;cifi&eacute; dans directement sur l'&eacute;l&eacute;ment<br/>
+  2. Feuille de style interne<br/>
+  3. Feuille de style externe<br/>
+  4. Affichage par d&eacute;faut du navigateur</p>
+<h3><a name="3" id="3"></a>3 - Syntaxe</h3>
+<p>Pour d&eacute;finir un style &agrave; l'int&eacute;rieur d'une feuille, il 
+  faut utiliser soit utiliser le nom de la <em><a href="#3,1">balise HTML</a></em> 
+  existante, cr&eacute;&eacute; une <em><a href="#3,2">classe</a></em> ou utiliser 
+  un <em><a href="#3,3">id</a></em>. </p>
+<h4><a name="3,1" id="3,1"></a>3.1 - Balise HTML</h4>
+<p>Par exemple, si on veut que toutes les balises de paragraphes (toutes les utilisations 
+  de &lt;p&gt;&lt;/p&gt;) affiche un texte align&eacute;, en noir et en Arial 
+  on utiliserais ce code dans notre feuille :</p>
+<p class="quote">p{<br/>
+  text-align:justify;<br/>
+  color:black;<br/>
+  font-family:Arial; <br/>
+  }</p>
+ <p>R&eacute;sultat : </p>
+<p class="example" style="text-align:justify;color:black;font-family:arial;">Exemple</p>
+<h4 class="quote"><a name="3,2" id="3,2"></a>3.2 - Classe</h4>
+<p>Maintenant, si on veut que certaines balises de paragraphes ayant une classe 
+  d&eacute;finie (exemple : &lt;p class=&quot;p1&quot;&gt;&lt;/p&gt;) affiche 
+  un texte soulign&eacute; (en plus d'&ecirc;tre un texte align&eacute; &agrave; 
+  gauche, en noir et en Arial comme d&eacute;fini pr&eacute;c&eacute;demment) 
+  on ajoute ce code &agrave; la feuille :</p>
+<p class="quote">p.p1{<br/>
+  text-decoration:underline;<br/>
+  }</p>
+<p>R&eacute;sultat : </p>
+<p class="example" style="text-align:justify;color:black;font-family:arial;text-decoration:underline;">Exemple</p>
+<h4 class="quote"><a name="3,3" id="3,3"></a>3.3 - Id</h4>
+<p>Et finalement, si on veut qu'uniquement un seul paragraphe identifi&eacute; 
+  par un id (exemple : &lt;p id=&quot;unique&quot;&gt;&lt;/p&gt;) affiche un texte 
+  align&eacute; &agrave; droite en vert (et en Arial comme d&eacute;fini pr&eacute;c&eacute;demment 
+  pour toutes les balises &lt;p&gt;&lt;/p&gt;) on utiliserait ce code :</p>
+<p class="quote">#unique{<br/>
+  text-align:right;<br/>
+  color:green;<br/>
+  }</p>
+ <p>R&eacute;sultat :</p>
+ <p class="example" style="text-align:right;color:black;font-family:arial;color:green;">Exemple</p>
+<p>Maintenant que vous connaissez la l'essentiel du CSS, il vous reste &agrave; 
+  le mettre en pratique et d'en apprendre davantage. Afin de conna&icirc;tre tous 
+  les attributs possibles pour les diff&eacute;rents &eacute;l&eacute;ments HTML, 
+  je vous propose de consulter les liens dans la section suivante.</p>
+<h3><a name="4" id="4"></a>4 - R&eacute;vison</h3>
+<p> <a href="revision.html#1.1">Voir la section &agrave; cet effet sur la page 
+  r&eacute;vison.</a></p>
+<h3><a name="5" id="5"></a>5 - R&eacute;f&eacute;rences</h3>
+<p> CSS Turorial, sur le site W3School Online Website (sans date). Consult&eacute; 
+  le 9 f&eacute;vrier 2006.<br/>
+  <a href="http://www.w3schools.com/css/" target="_blank">http://www.w3schools.com/css/</a></p>
+<p>Cascading Style Sheets (9 f&eacute;vrier 2006), sur le site World Wide Web 
+  Consortium. Consult&eacute; le 10 f&eacute;vrier 2006.<br/>
+  <a href="http://www.w3.org/Style/CSS/">http://www.w3.org/Style/CSS/</a></p>

@@ -1,0 +1,298 @@
+<h2>PHP</h2>
+<h4>Table des mati&egrave;res</h4>
+<p>1 - <a href="#1">Introduction</a><br>
+  2 - <a href="#2">Document PHP</a><br>
+  3 - <a href="#3">Variables</a><br>
+  4 - <a href="#4">Structures de contr&ocirc;le</a><br>
+  5 - <a href="#5">Fonctions</a><br>
+  6 - <a href="#6">MySQL</a><br>
+  7 - <a href="#7">R&eacute;vison</a><br>
+  8 - <a href="#8">R&eacute;f&eacute;rences</a></p>
+<h3><a name="1"></a>1 - Introduction</h3>
+<p>Pourquoi PHP? Pour PHP: Hypertext Preprocessor. Cela pourrait para&icirc;tre 
+  m&eacute;langeant, car c'est un acronyme r&eacute;cursif. Mais qu'est-ce q'un 
+  acronyme r&eacute;cursif? C'est une suite d'initiales qui se prononcent comme 
+  un mot ordinaire (acronyme) qui contient sa forme r&eacute;duite et qui se r&eacute;p&egrave;te 
+  &agrave; l'infini (r&eacute;cursif). Le meilleur exemple est LINUX qui veut 
+  dire &quot;Linux Is Not UniX&quot;. </p>
+<p>Le&ccedil;ons de fran&ccedil;ais termin&eacute;es, qu'est-ce que le PHP permet 
+  de faire? Il permet de cr&eacute;er rapidement des pages dynamiques : r&eacute;agir 
+  aux demandes du client, effectuer des taches r&eacute;p&eacute;titives, utiliser 
+  une base de donn&eacute;es et bien plus. La syntaxe du PHP ressemble au C, au 
+  Java et au Perl, car il en est inspir&eacute;. Mais n'ayez crainte, le PHP est 
+  beaucoup plus accessible que le C ou le Java pour les novices! Je dirais personnellement 
+  que c'est autant accessible que le JavaScript, sinon plus.</p>
+<p>Cependant, contrairement au JavaScript, le PHP est g&eacute;r&eacute; uniquement 
+  par le serveur. Il faut donc que PHP soit install&eacute; sur votre serveur 
+  et pr&eacute;f&eacute;rablement sur votre ordinateur. Si PHP n'est pas install&eacute; 
+  sur votre ordinateur, vous devrez mettre vos pages en ligne pour voir le r&eacute;sultat. 
+  Lorsqu'un client demande une page, c'est le serveur qui ex&eacute;cute le programme 
+  PHP et il renvoi uniquement le r&eacute;sultat sous la m&ecirc;me forme qu'un 
+  document HTML. </p>
+<h3><a name="2" id="2"></a>2 - Document PHP</h3>
+<p>Tout comme le HTML et le JavaScript, le PHP peut s'&eacute;diter dans un simple 
+  &eacute;diteur de texte. Mais il faut utiliser habituellement l'extension .php 
+  ou .php3 pour que notre programme soit ex&eacute;cut&eacute; par le serveur. 
+  Pour d&eacute;finir le d&eacute;but et la fin d'un code PHP, il faut utiliser 
+  la balise &lt;?php pour l'ouverture du code et ?&gt; pour la fermeture. Il faut 
+  aussi savoir que pour marquer la fin d'une ligne de code, il faut utiliser un 
+  point-virgule. Voici un exemple de code avec une syntaxe correcte :</p>
+<p class="quote">&lt;?php <br>
+  $variable1 = 'valeur1';<br>
+  $variable2 = 'valeur2'; <br>
+  ?&gt;</p>
+<h3><a name="3" id="3"></a>3 - Variables</h3>
+<h4>Variables utilisateur</h4>
+<p>Les variables PHP fonctionnent comme celle de JavaScript, c'est-&agrave;-dire 
+  qu'elles peuvent contenir une seule information ou un tableau d'informations 
+  qui peut &agrave; son tour contenir d'autres tableaux. Cependant, la syntaxe 
+  de PHP diff&egrave;re l&eacute;g&egrave;rement. Premi&egrave;re fa&ccedil;on 
+  : </p>
+<p class="quote">$variable = array('variable1', 'variable2');</p>
+<p>On pourra ensuite utiliser <em>$variable[0]</em> et <em>$variable[1]</em> pour 
+  utiliser les informations contenues dans le tableau. Tout comme JavaScript la 
+  num&eacute;rotation d&eacute;bute toujours &agrave; 0 et on peut aussi utiliser 
+  des cha&icirc;nes de caract&egrave;res pour d&eacute;finir les entr&eacute;es 
+  du tableau :</p>
+<p class="quote"> $variable = array('variable1'=&gt;'valeur1', 'variable2'=&gt;'variable2');</p>
+<p>On peut aussi &eacute;crire ce genre de d&eacute;claration sur plusieurs lignes 
+  pour plus de clart&eacute; :</p>
+<p class="quote">$variable = array(<br>
+  &nbsp;&nbsp;'variable1'=&gt;'valeur1', <br>
+  &nbsp;&nbsp;'variable2'=&gt;'variable2'<br>
+  &nbsp;&nbsp;);</p>
+<p>On pourra ensuite utiliser <em>$variable['variable1']</em> et <em>$variable['variable2']</em> 
+  pour utilser les informations contenues dans le tableau. On peut aussi cr&eacute;er 
+  un tableau et y ajouter des variables ainsi :</p>
+<p class="quote">$variable['variable1'] = 'variable1';<br>
+  $variable['variable2'] = 'variable2';</p>
+<h4 class="quote">Variables d'environnement</h4>
+<p>Les variables d'environnement contiennent des informations sur le serveur et 
+  sur le client. Ces variables d&eacute;butent toutes avec <em>$_</em> et sont 
+  en majuscules. Voici les types les plus importants de variables d&eacute;finis 
+  par le serveur :</p>
+<h5>Serveur</h5>
+<p>Les informations que vous donne le serveur sont donn&eacute;es sous forme de 
+  tableau dans la variable <em>$_SERVER</em>. Pour par exemple afficher l'adresse 
+  IP du client on utilisera la variable $_SERVER['REMOTE_ADDR'] et la d&eacute;claration 
+  <em> echo</em>:</p>
+<p class="quote">echo $_SERVER['REMOTE_ADDR'];</p>
+<p class="example">{ip}</p>
+<p><em>Echo</em> est une fonction qui n'en est pas r&eacute;ellement une, c'est 
+  davantage une d&eacute;claration qui permet de retourner quelque chose au client 
+  (le navigateur). Pour obtenir une liste exhaustive de toutes les informations 
+  contenues dans le tableau <em>$_SERVEUR</em> consultez le site de PHP.</p>
+<h5>Formulaire</h5>
+<p>Lorsqu'un formulaire HTML est soumis par m&eacute;thode <em>post</em>, toutes 
+  les informations soumises sont contenues dans les tableaux des variables <em>$_POST</em> 
+  et <em>$_FILE</em>. Comme sont nom le laisse croire, la variable <em>$_FILE 
+  </em>est utilis&eacute;e lorsque l'on envoi un fichier avec un formulaire. Les 
+  entr&eacute;es du tableau sont rattach&eacute;es au nom des champs du formulaire.</p>
+<h5>Url</h5>
+<p>Lorsqu'une adresse contient des variables, elles sont emmagasin&eacute;es dans 
+  le tableau de la variable $_GET. Pour soumettre des variables dans une adresse, 
+  il faut ajouter un point d'interrogation &agrave; la fin du nom du fichier et 
+  s&eacute;par&eacute; les variables par des &amp;. Exemple avec cette adresse 
+  :</p>
+<p class="quote">index.php?variable1=valeur1&amp;variable2=valeur2&amp;variable3=valeur3</p>
+<p>On pourra utiliser <em>$_GET['variable1']</em>, <em>$_GET['variable2']</em>, 
+  <em>$_GET['variable2']</em> qui contiendront <em>valeur1</em>, <em>valeur2</em>, 
+  <em>valeur3</em>.</p>
+<h5> Cookie</h5>
+<p>La variable <em>$_COOKIE</em> contient un tableau des t&eacute;moins de connexion 
+  enregistr&eacute;s sur l'ordinateur du client. Ces cookies peuvent &ecirc;tre 
+  ajout&eacute;s par PHP ou par JavaScript &agrave; l'aide de fonctions pr&eacute;d&eacute;finie 
+  pr&eacute;vues &agrave; cet effet. Les t&eacute;moins de connexion ont une dur&eacute;e 
+  de vie d&eacute;finie lors de leur cr&eacute;ation.</p>
+<h5>Session</h5>
+<p>La variable $_SESSION contient un tableau des variables de sessions du client. 
+  Les variables de sessions sont aussi d&eacute;finies par des fonctions, mais 
+  ne sont pas enregistr&eacute;es sur l'ordinateur du client, mais sur le serveur 
+  de fa&ccedil;on temporaire : lorsque le client quitte son navigateur, ces variables 
+  sont effac&eacute;es.</p>
+<h3><a name="4" id="4"></a>4 - Structures de contr&ocirc;le</h3>
+<p>PHP offre plusieurs structures de contr&ocirc;le dont des conditions et boucles. 
+  Nous aborderons ici les structures les plus utilis&eacute;es, <em></em>pour 
+  conna&icirc;tre toutes les structures de contr&ocirc;les, vous pouvez consulter 
+  le site de <a href="http://ca3.php.net/manual/en/language.control-structures.php" target="_blank">PHP</a>.</p>
+<h4>If, else, elseif</h4>
+<p>Ces structures permettent d'&eacute;valuer une expression. Exemple :</p>
+<p class="quote">if ($a &gt; $b) echo &quot;a est plus grand b&quot;;<br>
+  elseif($a == $b) echo &quot;a est &eacute;gal &agrave; b&quot;;<br>
+  else echo &quot;a est plus petit que b&quot;;</p>
+<p>Lors que l'on veut utiliser plus d'une commande suite &agrave; l'&eacute;valuation 
+  d'une expression, il faut utiliser les accolades &quot;{}&quot; comme suit :</p>
+<p class="quote">if($a &gt; $b){<br>
+  &nbsp;&nbsp;echo 'a est plus grand b';<br>
+  &nbsp;&nbsp;echo 'donc b est plus petit que a'; <br>
+  } elseif($a == $b){<br>
+  &nbsp;&nbsp;echo 'a est &eacute;gal &agrave; b';<br>
+  &nbsp;&nbsp;echo 'donc b est &eacute;gal &agrave; a'; <br>
+  } else {<br>
+  &nbsp;&nbsp;echo 'a est plus petit que b';<br>
+  &nbsp;&nbsp;echo 'donc b est plus grand que a'; <br>
+  }</p>
+<p>Il est permis d'utiliser plusieurs <em>elseif</em> &agrave; la suite d'un if 
+  mais un seul <em>else</em>.</p>
+<h4>While, do-while</h4>
+<p>Ces structures permettent d'&eacute;valuer constamment une expression, et ex&eacute;cutent 
+  les commandes tout comme <em>if, else, elseif</em> jusqu'&agrave; ce que l'expression 
+  ne soit plus vrai. Par exemple :</p>
+<p class="quote">$a = 0;<br>
+  $b = 4;<br>
+  while($a &lt; $b){<br>
+  &nbsp;&nbsp;echo 'a est plus petit que b';<br>
+  &nbsp;&nbsp;$a = $a+1;<br>
+  }</p>
+<p>Dans cet exemple, la commande echo s'ex&eacute;cutera jusqu'&agrave; ce que 
+  <em>$a</em> soit plus grand que <em>$b</em>, donc 4 fois. Do-while permet la 
+  m&ecirc;me chose &agrave; l'exception que l'expression est v&eacute;rifi&eacute;e 
+  &agrave; la fin de la commande :</p>
+<p class="quote">$a = 1;<br>
+  do {<br>
+  &nbsp;&nbsp;echo 'si a est plus grand que 0 je n'afficherai plus!';<br>
+  } while($a &gt; 0);</p>
+<p>La fonction <em>echo </em>s'ex&eacute;cuterais alors une seule fois puisque 
+  <em>$a </em>est plus grand que 1.</p>
+<h4>Foreach</h4>
+<p>La structure <em>foreach</em> permet d'ex&eacute;cuter un code pour chaque 
+  entr&eacute;e d'un tableau. Exemple :</p>
+<p class="quote">$tableau = array(2, 4, 6, 8);<br>
+  foreach ($tableau as $valeur) {<br>
+  &nbsp;&nbsp;echo 'Valeur '.$valeur.'&lt;br&gt;';<br>
+  }</p>
+<p class="example">Valeur : 2<br>
+  Valeur : 4<br>
+  Valeur : 6<br>
+  Valeur : 8</p>
+<p>On peut aussi utiliser le nom des cl&eacute;s des entr&eacute;es du tableau 
+  dans une structure foreach :</p>
+<p class="quote">$tableau = array(<br>
+  &nbsp;&nbsp;'un'=&gt;'bleu',<br>
+  &nbsp;&nbsp;'deux'=&gt;'blanc',<br>
+  &nbsp;&nbsp;'trois'=&gt;'rouge',<br>
+  &nbsp;&nbsp;'quate'=&gt;'vert'<br>
+  &nbsp;&nbsp;); <br>
+  foreach ($tableau as $cles=&gt;$valeur) {<br>
+  &nbsp;&nbsp;echo 'Valeur '.$cles.' : '.$valeur.'.&lt;br&gt;';<br>
+  }</p>
+<p class="example">Valeur un : bleu.<br>
+  Valeur deux : blanc.<br>
+  Valeur trois : rouge.<br>
+  Valeur quate: vert.</p>
+<h4 class="example">For</h4>
+<p>Cette structure permet d'&eacute;valuer une expression un peu &agrave; la mani&egrave;re 
+  de <em>while </em>mais avec 3 expressions s&eacute;par&eacute;es par des points-virgules 
+  qui sont &eacute;valu&eacute;es ou ex&eacute;cut&eacute;es de fa&ccedil;on diff&eacute;rente. 
+  La premi&egrave;re expression est ex&eacute;cut&eacute;e une seule fois au d&eacute;but, 
+  la deuxi&egrave;me expression est &eacute;valu&eacute;e &agrave; chaque it&eacute;ration 
+  exactement comme l'expression contenue dans un <em>while</em> et la troisi&egrave;me 
+  expression est ex&eacute;cut&eacute;e &agrave; chaque it&eacute;ration. Exemple 
+  :</p>
+<p class="quote">for($i=0; $i&lt;4; $i++){<br>
+  &nbsp;&nbsp;echo $i.' est plus petit que 4 &lt;br&gt;';<br>
+  }</p>
+<p class="example">0 est plus petit que 4<br>
+  1 est plus petit que 4<br>
+  2 est plus petit que 4<br>
+  3 est plus petit que 4 </p>
+<h4>Switch, case, default, break</h4>
+<p>Ces structures permettent comme il est sous-entendu de &quot;switcher&quot;. 
+  Ce &quot;switch&quot; s'effectue en &eacute;valuant la valeur d'une variable. 
+  Exemple :</p>
+<p class="quote">switch($a){<br>
+  &nbsp;&nbsp;case 1:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo 'Cas num&eacute;ro 1, $a est &eacute;gal &agrave; 
+  1'.<br>
+  &nbsp;&nbsp;break; <br>
+  &nbsp;&nbsp;case 2:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo 'Cas num&eacute;ro 2, $a est &eacute;gal &agrave; 
+  2'.<br>
+  &nbsp;&nbsp;break; <br>
+  &nbsp;&nbsp;default:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo 'Cas par d&eacute;faut, $a est n'est pas &eacute;gal 
+  &agrave; 1 ou 2'. <br>
+  &nbsp;&nbsp;break; <br>
+  }</p>
+<p>Dans cet exemple, si <em>$a </em>est &eacute;gal &agrave; 1 ou 2 les le cas 
+  1 ou 2 sera ex&eacute;cut&eacute;, et si <em>$a</em> n'est pas &eacute;gal &agrave; 
+  1 ou 2, le cas par d&eacute;faut s'ex&eacute;cutera. On peut utiliser le m&ecirc;me 
+  code pour plusieurs cas et le cas <em>default </em>n'est pas obligatoire. On 
+  pourrait donc &eacute;crire :</p>
+<p class="quote">switch($a){<br>
+  &nbsp;&nbsp;case 1:<br>
+  &nbsp;&nbsp;case 2:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;echo 'Cas num&eacute;ro 2, $a est &eacute;gal &agrave; 
+  1 ou 2'.<br>
+  &nbsp;&nbsp;break; <br>
+  }</p>
+<h4>Return</h4>
+<p>Cette structure permet dans une fonction de retourner un r&eacute;sultat &agrave; 
+  ce qui l'a appel&eacute;. Plus d'explications et d'exemples dans la section 
+  <a href="#5">fonctions</a>.</p>
+<h4>Require(), include()</h4>
+<p>Ces structures permettent d'inclure un fichier dans un fichier. Les fichiers 
+  que vous incluez peuvent contenir du HTML et ou du PHP et le code peut communiquer 
+  avec le code de la page qui l'inclus (utiliser les variables, les fonctions, 
+  etc.).</p>
+<h3><a name="5" id="5"></a>5 - Fonctions</h3>
+<p>Il y a 2 cat&eacute;gories de fonctions, celles d&eacute;finies par d&eacute;faut 
+  par PHP et celles d&eacute;finies par l'utilisateur. Vous pouvez trouver les 
+  fonctions de PHP sur le site de <a href="http://www.php.net" target="_blank">PHP</a>. 
+</p>
+<h4>Cr&eacute;er une fonction</h4>
+<p>Lorsque l'on cr&eacute;e une fonction, il faut utiliser exactement la m&ecirc;me 
+  syntaxe qu'avec JavaScript : </p>
+<p class="quote">function [nom de la fonction]([variable1],[variable2],[variable3]){<br>
+  &nbsp;&nbsp;[code]<br>
+  &nbsp;&nbsp;[return]<em><br>
+  </em>}</p>
+<p><em>[nom de la fonction]</em></p>
+<p>Le nom de la fonction sera utilis&eacute; afin de l'appeler. Il peut &ecirc;tre 
+  le nom d'une fonction d&eacute;ja &eacute;tablie par PHP ou l'utilisateur, l'ancienne 
+  sera &eacute;cras&eacute;e. Il est important d'utiliser uniquement des caract&egrave;res 
+  alphab&eacute;tiques ou un _ pour le premier caract&egrave;re du nom. Les autres 
+  caract&egrave;res peuvent &ecirc;tre alphanum&eacute;riques, majuscules et minuscules.</p>
+<p><em>[variable1],[variable2],[variable3]</em></p>
+<p>Les variables sont les donn&eacute;es qui pourront &ecirc;tre transmises lors 
+  de l'appel de la fonction. Il est possible d'ajouter autant de variables (s&eacute;par&eacute; 
+  par des virgules) &agrave; la fonction que voulu. Il est aussi possible d'inclure 
+  aucune variable, mais il faut quand m&ecirc;me mettre les parenth&egrave;ses 
+  comme suit : ().</p>
+<p><em>[code]</em></p>
+<p>Le code est ce qui sera ex&eacute;cut&eacute; lors de l'appel de la fonction. 
+  Il peut utiliser les variables transmises. Il peut aussi retourner ou non une 
+  information &agrave; ce qui a appel&eacute; la fonction. Pour retourner une 
+  information, il faut utiliser la d&eacute;claration <em>return </em>suivie d'une 
+  information &agrave; retourner. Voici un exemple ou nous voulons que la variable 
+  <em>result</em> contienne le r&eacute;sultat de la fonction <em>mafonction </em>: 
+</p>
+<p class="quote">function mafonction(var1,var2){<br>
+  &nbsp;&nbsp;$calcul=var1*var2+10;<br>
+  &nbsp;&nbsp;return $calcul;<br>
+  }<br>
+  $result=mafonction(3,4);</p>
+<p>La variable <em>$result</em> contiendra alors 24.</p>
+<p>Dans une fonction PHP, les variables d&eacute;finies &agrave; l'ext&eacute;rieur 
+  de celle-ci ne peuvent pas &ecirc;tre utilis&eacute;es, &agrave; moins d'utiliser 
+  la d&eacute;claration <em>global. </em>Par exemple, si l'on veux utiliser les 
+  variable <em>$x </em>et <em>$y</em> dans notre fonction <em>mafonction </em>il 
+  faut proceder ainsi :</p>
+<p class="quote">$x = 'x';<br>
+  $y = 'y'; <br>
+  function mafonction() {<br>
+  &nbsp;&nbsp;global $x,$y;<br>
+  }</p>
+<h3><a name="6" id="6"></a>6 - MySQL</h3>
+<p><a href="./mysql.html">Voir la section &agrave; cet effet.</a></p>
+<h3><a name="7" id="7"></a>7 - R&eacute;vison</h3>
+<p> <a href="revision.html#1.1">Voir la section &agrave; cet effet sur la page 
+  r&eacute;vison.</a></p>
+<h3><a name="8" id="8"></a>8 - R&eacute;f&eacute;rences</h3>
+<p> PHP D&eacute;butant (sans date). Consult&eacute; le 17 mars 2006.<br>
+  <a href="http://www.phpdebutant.org" target="_blank">http://www.phpdebutant.org</a></p>
+<p>PHP : Hyptertext Preprocessor (17 mars 2006). Consult&eacute; le 17 mars 2006.<br>
+  <a href="http://www.php.net">http://www.php.net</a></p>
+<p>Introduction to PHP (17 avril 2000), sur le site Zend Technologies. Consult&eacute; 
+  le 17 mars 2006.<br>
+  <a href="http://www.zend.com/zend/art/intro.php">http://www.zend.com/zend/art/intro.php</a></p>

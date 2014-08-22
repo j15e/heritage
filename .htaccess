@@ -1,0 +1,10 @@
+Options -Indexes
+ErrorDocument 404 /404.html
+DirectoryIndex index.php
+RewriteEngine on
+RewriteRule ^(0*|en/)([abcdefghijklmnopqrstuvwxyz0-9]*).html(.*)$ index.php?action=$2&set_lang=$1$3 [L]
+RewriteRule index.php?action=([abcdefghijklmnopqrstuvwxyz0-9]*)&set_lang=(0*|en/)(.*) ^$2$1.html$3$ [R=301]
+RewriteRule ^/en/$ index.php?set_lang=en [L]
+RewriteRule index.php?set_lang=en ^/en/$ [R=301]
+RewriteCond %{HTTP_HOST} ^(.*).devdoyle.com [NC]
+RewriteRule ^(.*)$ http://heritage.j15e.com/$1 [L,R=301]

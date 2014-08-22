@@ -1,0 +1,11 @@
+<?php
+$_config['db_host']='localhost';
+$_config['db_username']='';
+$_config['db_password']='';
+$_config['db_database']='';
+$_config['db_persistant']=0;
+$_config['complete_url']='http://www.creationkjp.com/heritage/';
+$_config['disabledays']='06';
+$_config['time']=time()+3600;
+$_config['request_time_limit']=86400;
+?>
