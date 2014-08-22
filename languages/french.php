@@ -1,4 +1,4 @@
-<?
+<?php
 // index
 $_LG['index_title1']='Introduction au développement Web';
 $_LG['index_title2']='Introduction au développement Web';

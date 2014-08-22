@@ -1,6 +1,7 @@
 <?php
+global $_LG;
 $output=1;
-if(''==$_GET['action']) {
+if(empty($_GET['action'])) {
 	$current_page = $_LG['index_menu1.1'];
 	$template['misc'] = new template('home');
 } elseif('documents'==$_GET['action']){
@@ -22,7 +23,7 @@ if(''==$_GET['action']) {
 	$template['misc'] = new template('php');
 	$template['misc']->replace_tags(array(
 		'ip' => $_SERVER['REMOTE_ADDR']
-		));	
+		));
 } elseif('mysql'==$_GET['action']){
 	$current_page = $_LG['index_menu2.5'];
 	$template['misc'] = new template('mysql');
@@ -45,7 +46,7 @@ if(''==$_GET['action']) {
 	$current_page = 'Quatrième journal';
 	$template['misc'] = new template('journal4');
 }
-if(!isset($template['misc']) & $_GET['action']!=''){
+if(!isset($template['misc']) & !empty($_GET['action'])){
 	header('location:'.$_config['complete_url'].$set_lang.'404.html');
 	exit();
 }

@@ -22,13 +22,13 @@ class template {
 		if(sizeof($ts) > 0)
 			foreach($ts as $t => $d) {
 				if(file_exists($d))$d=$this->parse($d);
-				$this->template=eregi_replace('{'.$t.'}',$d,$this->template);
+				$this->template=preg_replace('/{'.$t.'}/i',$d,$this->template);
 			}
 		else die();
 	}
 	function ctrlgo() {
-		global $_config,$_LG;
-		$data=(file_exists($data)) ? $this->parse($data) : $data;
+		global $_config, $_LG;
+		//$data=(file_exists($data)) ? $this->parse($data) : $data;
 		$this->template=preg_replace( '!\{_LG_(.*?)\}!e', '\'\'.\$_LG[\'\\1\'].\'\'', $this->template);
 		$this->template=preg_replace( '!\{_POST_(.*?)\}!e', '\'\'.htmlspecialchars(stripslashes(\$_POST[\'\\1\'])).\'\'', $this->template);
 		$this->replace_tags(array(
